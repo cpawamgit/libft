@@ -67,7 +67,7 @@ char **ft_strsplit(const char *s, char c)
 	if (splitstr)
 	{
 		ft_fillboard(splitstr, s, c);
-		splitstr[ft_count_words(s, c)]= '\0';
+		splitstr[ft_count_words(s, c)] = 0;
 		return (splitstr);
 	}
 	else

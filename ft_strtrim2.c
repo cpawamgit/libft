@@ -24,7 +24,7 @@ static int ft_wspacecount(const char *str)
 	return (j);
 }
 
-char *ft_strtrim(const char *s)
+char *ft_strtrim2(const char *s)
 {
 	int i;
 	int j;

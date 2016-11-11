@@ -1,4 +1,4 @@
-int 	ft_is_plus_less(char c)
+static int	ft_is_plus_less(char c)
 {
 	if (c == '-')
 		return (1);
@@ -7,14 +7,14 @@ int 	ft_is_plus_less(char c)
 	return (0);
 }
 
-int  	ft_isspace(char c)
+static int	ft_isspace(char c)
 {
 	if (c == ' ' || c == '\v' || c == '\f' || c == '\r' || c == '\n' || c == '\t')
 		return (1);
 	return(0);
 }
 
-int ft_is_number(char c)
+static int ft_is_number(char c)
 {
 	if (c >= 48 && c <= 57)
 		return (1);

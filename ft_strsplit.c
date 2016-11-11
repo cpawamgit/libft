@@ -11,7 +11,7 @@ static int	ft_count_words(const char *str, char c)
 	k = 0;
 	while (str[i] != '\0')
 	{
-		while (str[i] != c)
+		while (str[i] != c && str[i + 1] != '\0')
 		{
 			i++;
 			j = 1;
@@ -40,6 +40,7 @@ static void	ft_fillboard(char **board, const char *s, char c)
 		{
 			while (s[i + j] != c)
 				j++;
+			printf("%d\n", j);
 			board[boardfilled] = (char *)malloc(sizeof(char) * j + 1);
 			if (board[boardfilled])
 			{
@@ -72,4 +73,19 @@ char **ft_strsplit(const char *s, char c)
 	}
 	else
 		return (NULL);
+}
+
+int main()
+{
+	int i;
+
+	i = 0;
+	printf("%d\n", ft_count_words("           yo", ' '));
+	char **toto = ft_strsplit("            yo", ' ');
+	while(toto[i])
+	{
+		printf("%s\n", toto[i]);
+		i++;
+	}
+	return (0);
 }

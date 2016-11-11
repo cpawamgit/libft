@@ -15,7 +15,7 @@ static void	ft_get_power_and_block(int *power, int *block, int n)
 {
 	*block = 1;
 	*power = 1;
-	while (*power * 10 <= n)
+	while (*power <= n / 10)
 	{
 		*power = *power * 10;
 		*block = *block + 1;
@@ -28,20 +28,30 @@ void	ft_putnbr(int n)
 	int power;
 	int block;
 	char c;
+	if (n == -2147483648)
+		write(1, "-2147483648", 11);
+	else
+	{
+		ft_isposorneg(&n, &i);
+		ft_get_power_and_block(&power, &block, n);
+		if (i == 1)
+		{
+			write(1, "-", 1);
+			block = block + 1;
+		}
+		while (i < block)
+		{
+			c = n / power + 48;
+			n = n % power;
+			power = power / 10;
+			i++;
+			write(1, &c, 1);
+		}
+	}
+}
 
-	ft_isposorneg(&n, &i);
-	ft_get_power_and_block(&power, &block, n);
-	if (i == 1)
-	{
-		write(1, "-", 1);
-		block = block + 1;
-	}
-	while (i < block)
-	{
-		c = n / power + 48;
-		n = n % power;
-		power = power / 10;
-		i++;
-		write(1, &c, 1);
-	}
+int main()
+{
+	ft_putnbr(2147483647);
+	return(0);
 }

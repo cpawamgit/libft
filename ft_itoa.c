@@ -22,10 +22,13 @@ static void	ft_get_power_and_block(int *power, int *block, int n)
 	}
 }
 
-/*static void ft_intmin(char *result)
+static char *ft_intmin(void)
 {
-	result = "-2147483648";
-}*/
+	char *result;
+		result = (char *)malloc(sizeof(char) * 12);
+		ft_strcpy(result, "-2147483648");
+		return (result);
+}
 
 char	*ft_itoa(int n)
 {
@@ -34,11 +37,7 @@ char	*ft_itoa(int n)
 	int block;
 	char *result;
 	if (n == -2147483648)
-	{
-		result = (char *)malloc(sizeof(char) * 12);
-		ft_strcpy(result, "-2147483648");
-		return (result);
-	}
+		return (ft_intmin());
 	ft_isposorneg(&n, &i);
 	ft_get_power_and_block(&power, &block, n);
 	result = (char *)malloc(sizeof(char) * block + 1 + i);

@@ -31,19 +31,22 @@ void	ft_putnbr_fd(int n, int fd)
 
 	if (n == -2147483648)
 		write(fd, "-2147483648", 11);
-	ft_isposorneg(&n, &i);
-	ft_get_power_and_block(&power, &block, n);
-	if (i == 1)
+	else
 	{
-		write(fd, "-", 1);
-		block = block + 1;
-	}
-	while (i < block)
-	{
-		c = n / power + 48;
-		n = n % power;
-		power = power / 10;
-		i++;
-		write(fd, &c, 1);
+		ft_isposorneg(&n, &i);
+		ft_get_power_and_block(&power, &block, n);
+		if (i == 1)
+		{
+			write(fd, "-", 1);
+			block = block + 1;
+		}
+		while (i < block)
+		{
+			c = n / power + 48;
+			n = n % power;
+			power = power / 10;
+			i++;
+			write(fd, &c, 1);
+		}
 	}
 }

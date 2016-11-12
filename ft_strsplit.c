@@ -38,9 +38,9 @@ static void	ft_fillboard(char **board, const char *s, char c)
 	{
 		if (s[i] != c)
 		{
-			while (s[i + j] != c)
+			while (s[i + j] != c && s[i + j] != '\0')
 				j++;
-			board[boardfilled] = (char *)malloc(sizeof(char) * j + 1);
+			board[boardfilled] = (char *)malloc(sizeof(char) * (j + 1));
 			if (board[boardfilled])
 			{
 				while (k < j)
@@ -51,7 +51,7 @@ static void	ft_fillboard(char **board, const char *s, char c)
 				board[boardfilled][k] = '\0';
 			}
 			boardfilled++;
-			i = i + k;
+			i = i + k - 1;
 			k = 0;
 			j = 0;
 		}
@@ -63,7 +63,7 @@ char **ft_strsplit(const char *s, char c)
 {
 	char **splitstr;
 
-	splitstr = (char **)malloc(sizeof(char *) * ft_count_words(s, c) + 1);
+	splitstr = (char **)malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
 	if (splitstr)
 	{
 		ft_fillboard(splitstr, s, c);
@@ -73,19 +73,3 @@ char **ft_strsplit(const char *s, char c)
 	else
 		return (NULL);
 }
-/*
-int main()
-{
-	int i;
-
-	i = 0;
-	char *s = "                  olol";
-	char **r = ft_strsplit(s, ' ');
-	while(*r)
-	{
-		printf("ft_strsplit : ");
-		printf("%s\n", *r);
-		r++;
-	}
-	return (0);
-}*/

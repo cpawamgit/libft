@@ -1,42 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyrmorin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/12 00:38:02 by cyrmorin          #+#    #+#             */
-/*   Updated: 2016/11/12 00:38:04 by cyrmorin         ###   ########.fr       */
+/*   Created: 2016/11/13 21:58:16 by cyrmorin          #+#    #+#             */
+/*   Updated: 2016/11/13 21:58:19 by cyrmorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char *ft_strcat(char *s1, const char *s2)
 {
 	size_t i;
-	char *d;
-	const char *s;
+	size_t len;
 
-	d = dst;
-	s = src;
-	if (src < dst)
+	i = 0;
+	len = ft_strlen(s1);
+	while (s2[i] != '\0')
 	{
-		i = len;
-		while (i > 0)
-		{
-			i--;
-			d[i] = s[i];
-		}
+		s1[i + len] = s2[i];
+		i++;
 	}
-	else
-	{
-		i = 0;
-		while (i < len)
-		{
-			d[i] = s[i];
-			i++;
-		}
-	}
-	return (dst);
+	s1[i + len] = '\0';
+	return (s1);
 }

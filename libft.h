@@ -23,5 +23,6 @@ char	*ft_strmap(const char *s, char (*f)(char));
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 char	*ft_strncpy(char *s1, const char *s2, size_t n);
 char	*ft_strnew(size_t size);
-
+void	*ft_memccpy(void *restrict dst, const void *restrict src, int c, size_t n);
+void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n);
 #endif

@@ -1,42 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyrmorin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/12 00:38:02 by cyrmorin          #+#    #+#             */
-/*   Updated: 2016/11/12 00:38:04 by cyrmorin         ###   ########.fr       */
+/*   Created: 2016/11/12 17:40:40 by cyrmorin          #+#    #+#             */
+/*   Updated: 2016/11/12 17:40:42 by cyrmorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+size_t	ft_strcmp(const char *s1, const char * s2)
 {
 	size_t i;
-	char *d;
-	const char *s;
 
-	d = dst;
-	s = src;
-	if (src < dst)
+	if (ft_strlen(s1) == 0 && ft_strlen(s2) == 0)
+		return(0);
+	if (ft_strlen(s1) == 0)
+		return(-1);
+	if (ft_strlen(s2) == 0)
+		return(1);
+	i = 0;
+	while(s1[i] != '\0' && s2[i] != '\0')
 	{
-		i = len;
-		while (i > 0)
-		{
-			i--;
-			d[i] = s[i];
-		}
+		if (((unsigned char) s1[i]) > ((unsigned char) s2[i]))
+			return (1);
+		if (((unsigned char) s1[i]) < ((unsigned char) s2[i]))
+			return (-1);
+		i++;
 	}
-	else
-	{
-		i = 0;
-		while (i < len)
-		{
-			d[i] = s[i];
-			i++;
-		}
-	}
-	return (dst);
+	return (0);
 }

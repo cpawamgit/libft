@@ -49,7 +49,7 @@ char	*ft_strtrim(const char *s)
 			}
 			trimstr[k] = '\0';
 			return (trimstr);
-		}
+	}
 		else
 			return (NULL);
 	}

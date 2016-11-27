@@ -1,6 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cyrmorin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/11/25 21:01:32 by cyrmorin          #+#    #+#             */
+/*   Updated: 2016/11/25 21:01:34 by cyrmorin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *tofind, size_t len)
+static void	ft_reset_and_increment(size_t *j, size_t *i)
+{
+	*j = 0;
+	*i = *i + 1;
+}
+
+char		*ft_strnstr(const char *str, const char *tofind, size_t len)
 {
 	size_t i;
 	size_t j;
@@ -24,8 +42,7 @@ char	*ft_strnstr(const char *str, const char *tofind, size_t len)
 			if (j == lentofind)
 				return ((char *)str) + i;
 		}
-		j = 0;
-		i++;
+		ft_reset_and_increment(&j, &i);
 	}
 	return (NULL);
 }

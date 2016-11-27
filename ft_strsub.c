@@ -10,13 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
-char *ft_strsub(const char *s, unsigned int start, size_t len)
+char	*ft_strsub(const char *s, unsigned int start, size_t len)
 {
-	unsigned int i;
-	char *cutstr;
+	size_t	i;
+	char	*cutstr;
 
 	i = 0;
 	cutstr = (char *)malloc(sizeof(char) * len + 1);

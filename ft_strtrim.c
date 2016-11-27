@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cyrmorin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/11/25 16:53:35 by cyrmorin          #+#    #+#             */
+/*   Updated: 2016/11/25 16:53:38 by cyrmorin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static int	ft_iswspace(char c)
@@ -8,31 +20,29 @@ static int	ft_iswspace(char c)
 		return (0);
 }
 
-static void ft_totalw(const char *str, size_t *i, size_t *j)
+static void	ft_totalw(const char *str, size_t *i, size_t *j, size_t *k)
 {
-	int k;
-
 	*i = 0;
 	*j = 0;
-	k = 0;
+	*k = 0;
 	while (ft_iswspace(str[*i]))
 		*i = *i + 1;
-	while (ft_iswspace(str[ft_strlen(str) - k - 1]))
+	while (ft_iswspace(str[ft_strlen(str) - *k - 1]))
 	{
 		*j = *j + 1;
-		k++;
+		*k = *k + 1;
 	}
+	*k = 0;
 }
 
-char	*ft_strtrim(const char *s)
+char		*ft_strtrim(const char *s)
 {
-	size_t i;
-	size_t j;
-	size_t k;
-	char *trimstr;
+	size_t	i;
+	size_t	j;
+	size_t	k;
+	char	*trimstr;
 
-	k = 0;
-	ft_totalw(s, &i, &j);
+	ft_totalw(s, &i, &j, &k);
 	if (i != j)
 		trimstr = (char *)malloc(sizeof(char) * ft_strlen(s) + 1 - i - j);
 	else
@@ -47,9 +57,9 @@ char	*ft_strtrim(const char *s)
 				trimstr[k] = s[k + i];
 				k++;
 			}
-			trimstr[k] = '\0';
-			return (trimstr);
+		trimstr[k] = '\0';
+		return (trimstr);
 	}
-		else
-			return (NULL);
-	}
+	else
+		return (NULL);
+}

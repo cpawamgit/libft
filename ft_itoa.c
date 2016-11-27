@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cyrmorin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/11/25 17:18:47 by cyrmorin          #+#    #+#             */
+/*   Updated: 2016/11/25 17:18:51 by cyrmorin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static void	ft_isposorneg(int *n, int *i)
@@ -22,20 +34,28 @@ static void	ft_get_power_and_block(int *power, int *block, int n)
 	}
 }
 
-static char *ft_intmin(void)
+static char	*ft_intmin(void)
 {
 	char *result;
-		result = (char *)malloc(sizeof(char) * 12);
-		ft_strcpy(result, "-2147483648");
-		return (result);
+
+	result = (char *)malloc(sizeof(char) * 12);
+	ft_strcpy(result, "-2147483648");
+	return (result);
 }
 
-char	*ft_itoa(int n)
+static void	ft_isneg(char *result, int *block)
 {
-	int i;
-	int power;
-	int block;
-	char *result;
+	result[0] = '-';
+	*block = *block + 1;
+}
+
+char		*ft_itoa(int n)
+{
+	int		i;
+	int		power;
+	int		block;
+	char	*result;
+
 	if (n == -2147483648)
 		return (ft_intmin());
 	ft_isposorneg(&n, &i);
@@ -44,10 +64,7 @@ char	*ft_itoa(int n)
 	if (!result)
 		return (NULL);
 	if (i == 1)
-	{
-		result[0] = '-';
-		block++;
-	}
+		ft_isneg(result, &block);
 	while (i < block)
 	{
 		result[i] = n / power + 48;
@@ -58,10 +75,3 @@ char	*ft_itoa(int n)
 	result[i] = '\0';
 	return (result);
 }
-/*
-int main()
-{
-	char *i1 = ft_itoa((2147483647));
-	printf("%s\n", i1);
-	return (0);
-}*/

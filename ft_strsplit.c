@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cyrmorin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/11/25 19:19:24 by cyrmorin          #+#    #+#             */
+/*   Updated: 2016/11/25 19:19:26 by cyrmorin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static int	ft_count_words(const char *str, char c)
@@ -20,7 +32,23 @@ static int	ft_count_words(const char *str, char c)
 		j = 0;
 		i++;
 	}
-	return(k);
+	return (k);
+}
+
+static void	ft_initialise(int *i, int *j, int *k, int *boardfilled)
+{
+	*i = 0;
+	*j = 0;
+	*k = 0;
+	*boardfilled = 0;
+}
+
+static void	ft_loop(int *i, int *j, int *k, int *boardfilled)
+{
+	*i = *i + *k - 1;
+	*j = 0;
+	*k = 0;
+	*boardfilled = *boardfilled + 1;
 }
 
 static void	ft_fillboard(char **board, const char *s, char c)
@@ -30,10 +58,7 @@ static void	ft_fillboard(char **board, const char *s, char c)
 	int	k;
 	int	boardfilled;
 
-	i = 0;
-	j = 0;
-	k = 0;
-	boardfilled = 0;
+	ft_initialise(&i, &j, &k, &boardfilled);
 	while (s[i] != '\0')
 	{
 		if (s[i] != c)
@@ -41,25 +66,21 @@ static void	ft_fillboard(char **board, const char *s, char c)
 			while (s[i + j] != c && s[i + j] != '\0')
 				j++;
 			board[boardfilled] = (char *)malloc(sizeof(char) * (j + 1));
-			if (board[boardfilled])
+			if (!board[boardfilled])
+				return ;
+			while (k < j)
 			{
-				while (k < j)
-				{
-					board[boardfilled][k] = s[i + k];
-					k++;
-				}
-				board[boardfilled][k] = '\0';
+				board[boardfilled][k] = s[i + k];
+				k++;
 			}
-			boardfilled++;
-			i = i + k - 1;
-			k = 0;
-			j = 0;
+			board[boardfilled][k] = '\0';
+			ft_loop(&i, &j, &k, &boardfilled);
 		}
 		i++;
 	}
 }
 
-char **ft_strsplit(const char *s, char c)
+char		**ft_strsplit(const char *s, char c)
 {
 	char **splitstr;
 

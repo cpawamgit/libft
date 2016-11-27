@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 
 int	ft_strnequ(const char *s1, const char *s2, size_t n)
@@ -18,8 +17,8 @@ int	ft_strnequ(const char *s1, const char *s2, size_t n)
 	size_t i;
 
 	i = 0;
-	if (ft_strlen(s1) != strlen(s2))
-		return(0);
+	if (ft_strlen(s1) != ft_strlen(s2))
+		return (0);
 	else
 		while (i < n && s1[i] != '\0')
 		{
@@ -27,6 +26,5 @@ int	ft_strnequ(const char *s1, const char *s2, size_t n)
 				return (0);
 			i++;
 		}
-		return (1);
+	return (1);
 }
-

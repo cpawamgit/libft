@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cyrmorin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/11/25 18:20:15 by cyrmorin          #+#    #+#             */
+/*   Updated: 2016/11/25 18:20:17 by cyrmorin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static void	ft_isposorneg(int *n, int *i)
@@ -22,12 +34,12 @@ static void	ft_get_power_and_block(int *power, int *block, int n)
 	}
 }
 
-void	ft_putnbr_fd(int n, int fd)
+void		ft_putnbr_fd(int n, int fd)
 {
-	int i;
-	int power;
-	int block;
-	char c;
+	int		i;
+	int		power;
+	int		block;
+	char	c;
 
 	if (n == -2147483648)
 		write(fd, "-2147483648", 11);

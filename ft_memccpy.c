@@ -12,12 +12,12 @@
 
 #include "libft.h"
 
-void	*ft_memccpy(void *restrict dst, const void *restrict src, int c, size_t n)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	const char *s;
-	char *d;
-	size_t i;
-	unsigned char a;
+	const char		*s;
+	char			*d;
+	size_t			i;
+	unsigned char	a;
 
 	a = c;
 	i = 0;
@@ -33,4 +33,3 @@ void	*ft_memccpy(void *restrict dst, const void *restrict src, int c, size_t n)
 	}
 	return (NULL);
 }
-

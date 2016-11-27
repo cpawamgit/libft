@@ -1,14 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cyrmorin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/11/25 19:54:04 by cyrmorin          #+#    #+#             */
+/*   Updated: 2016/11/25 19:54:05 by cyrmorin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *str, const char *tofind)
+static void	ft_initialise(size_t *i, size_t *j)
+{
+	*i = 0;
+	*j = 0;
+}
+
+char		*ft_strstr(const char *str, const char *tofind)
 {
 	size_t i;
 	size_t j;
 	size_t lentofind;
 
-	i = 0;
-	j = 0;
+	ft_initialise(&i, &j);
 	if (ft_strlen(tofind) == 0)
 		return ((char *)str);
 	if (ft_strlen(tofind) > ft_strlen(str))

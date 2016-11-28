@@ -21,6 +21,8 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 
 	i = 0;
 	j = 0;
+	if (s == NULL && f == NULL)
+		return (NULL);
 	while (s[i] != '\0')
 	{
 		i++;

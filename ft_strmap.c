@@ -21,6 +21,8 @@ char	*ft_strmap(const char *s, char (*f)(char))
 
 	i = 0;
 	j = 0;
+	if (s == NULL && f == NULL)
+		return (NULL);
 	while (s[i] != '\0')
 	{
 		i++;

@@ -35,6 +35,15 @@ static void	ft_totalw(const char *str, size_t *i, size_t *j, size_t *k)
 	*k = 0;
 }
 
+static char	*ft_alloc(const char *s, char *trimstr, size_t i, size_t j)
+{
+	if (i != j)
+		trimstr = (char *)malloc(sizeof(char) * ft_strlen(s) + 1 - i - j);
+	else
+		trimstr = (char *)malloc(sizeof(char) * ft_strlen(s) + 1 - i);
+	return (trimstr);
+}
+
 char		*ft_strtrim(const char *s)
 {
 	size_t	i;
@@ -42,11 +51,11 @@ char		*ft_strtrim(const char *s)
 	size_t	k;
 	char	*trimstr;
 
+	trimstr = NULL;
+	if (s == NULL)
+		return (NULL);
 	ft_totalw(s, &i, &j, &k);
-	if (i != j)
-		trimstr = (char *)malloc(sizeof(char) * ft_strlen(s) + 1 - i - j);
-	else
-		trimstr = (char *)malloc(sizeof(char) * ft_strlen(s) + 1 - i);
+	trimstr = ft_alloc(s, trimstr, i, j);
 	if (trimstr && s != NULL)
 	{
 		if ((i + j) >= ft_strlen(s))

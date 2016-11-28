@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static void	ft_initialise(size_t *i, size_t *j)
+static void	ft_set_to_zero(size_t *i, size_t *j)
 {
 	*i = 0;
 	*j = 0;
@@ -24,7 +24,7 @@ char		*ft_strstr(const char *str, const char *tofind)
 	size_t j;
 	size_t lentofind;
 
-	ft_initialise(&i, &j);
+	ft_set_to_zero(&i, &j);
 	if (ft_strlen(tofind) == 0)
 		return ((char *)str);
 	if (ft_strlen(tofind) > ft_strlen(str))

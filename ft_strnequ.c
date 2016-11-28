@@ -17,6 +17,8 @@ int	ft_strnequ(const char *s1, const char *s2, size_t n)
 	size_t i;
 
 	i = 0;
+	if (n == 0)
+		return (1);
 	if (ft_strlen(s1) != ft_strlen(s2))
 		return (0);
 	else

@@ -25,7 +25,8 @@ ft_memmove.c ft_strcmp.c ft_strncmp.c ft_strchr.c ft_strrchr.c \
 ft_memchr.c ft_memcmp.c ft_strdup.c ft_strcat.c ft_strncat.c ft_strlcat.c \
 ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_strnstr.c \
 ft_strstr.c ft_tolower.c ft_toupper.c ft_lstnew.c ft_lstdelone.c ft_lstdel.c \
-ft_lstadd.c ft_lstiter.c ft_lstmap.c
+ft_lstadd.c ft_lstiter.c ft_lstmap.c ft_islower.c ft_isupper.c ft_first_upper.c \
+ft_all_tolower.c ft_insert_point.c
 
 all: $(NAME)
 
@@ -44,7 +45,8 @@ ft_memmove.o ft_strcmp.o ft_strncmp.o ft_strchr.o ft_strrchr.o \
 ft_memchr.o ft_memcmp.o ft_strdup.o ft_strcat.o ft_strncat.o ft_strlcat.o \
 ft_isalnum.o ft_isalpha.o ft_isascii.o ft_isdigit.o ft_isprint.o ft_strnstr.o \
 ft_strstr.o ft_tolower.o ft_toupper.o ft_lstnew.o ft_lstdelone.o ft_lstdel.o \
-ft_lstadd.o ft_lstiter.o ft_lstmap.o
+ft_lstadd.o ft_lstiter.o ft_lstmap.o ft_islower.o ft_isupper.o ft_first_upper.o \
+ft_all_tolower.o ft_insert_point.o
 	ranlib $(NAME)
 
 clean:
@@ -61,7 +63,8 @@ ft_memmove.o ft_strcmp.o ft_strncmp.o ft_strchr.o ft_strrchr.o \
 ft_memchr.o ft_memcmp.o ft_strdup.o ft_strcat.o ft_strncat.o ft_strlcat.o \
 ft_isalnum.o ft_isalpha.o ft_isascii.o ft_isdigit.o ft_isprint.o ft_strnstr.o \
 ft_strstr.o ft_tolower.o ft_toupper.o ft_lstnew.o ft_lstdelone.o ft_lstdel.o \
-ft_lstadd.o ft_lstiter.o ft_lstmap.o
+ft_lstadd.o ft_lstiter.o ft_lstmap.o ft_islower.o ft_isupper.o ft_first_upper.o \
+ft_all_tolower.o ft_insert_point.o
 
 fclean: clean
 	/bin/rm -f $(NAME)

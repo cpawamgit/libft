@@ -88,5 +88,10 @@ char				*ft_strncpy(char *s1, const char *s2, size_t n);
 char				*ft_strnew(size_t size);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
+char				*ft_first_upper(char *str);
+int					ft_islower(int c);
+char				*ft_all_tolower(char *str);
+int					ft_isupper(int c);
+char				*ft_insert_point(char *str);
 
 #endif
